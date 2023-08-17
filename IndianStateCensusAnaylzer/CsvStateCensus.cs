@@ -19,6 +19,8 @@ namespace IndianStateCensusAnaylzer
                     var records = csv.GetRecords < StateCensusData>().ToList();
                     return records.Count() - 1;
                 }
+                
+
             }
         }
 

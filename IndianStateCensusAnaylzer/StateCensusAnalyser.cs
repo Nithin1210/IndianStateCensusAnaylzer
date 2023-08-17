@@ -13,6 +13,21 @@ namespace IndianStateCensusAnaylzer
     {
         public static int ReadstateCensusData(string filepath)
         {
+            if(!File.Exists(filepath))
+            {
+                throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.FILE_NOT_EXIST, "File Not Exist");
+
+            }
+            if (!Path.GetExtension(filepath).Equals(".csv"))
+            {
+                throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.FILE_INCORRECT, "File extension incorrect");
+            }
+            if(!File.ReadAllLines (filepath)[0].Equals("State,Population,AreaInSqKm,DensityPerSqKm"))
+            {
+                throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.HEADER_INCORRECT, "Header Incorrect");
+
+            }
+
             using (var reader = new StreamReader(filepath))
             {
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
