@@ -6,8 +6,8 @@ namespace IndianStateCensusAnaylzerTest
     public class StateCodeTest
     {
         public string stateCodeDataFilePath = @"E:\BridgeLabz\IndianStateCensusAnaylzer\IndianStateCensusAnaylzer\Files\StateCode.csv";
-        public string stateCensus_NODataFilePath = @"E:\BridgeLabz\IndianStateCensusAnayl.csv";
-        public string stateCencus_FileIncorrect = @"C:\Users\TakkoliNithinKumarRe\Pictures\Screenshots\Screenshot 2023-08-12 121858.png";
+        public string stateCode_NODataFilePath = @"E:\BridgeLabz\IndianStateCensusAnayl.csv";
+        public string stateCode_FileIncorrect = @"C:\Users\TakkoliNithinKumarRe\Pictures\Screenshots\Screenshot 2023-08-12 121858.png";
 
 
 
@@ -22,7 +22,7 @@ namespace IndianStateCensusAnaylzerTest
         {
             try
             {
-                StateCodeAnalyser.ReadStateCodeData(stateCencus_FileIncorrect);
+                StateCodeAnalyser.ReadStateCodeData(stateCodeDataFilePath);
             }
             catch (StateCodeException ex)
             {
@@ -35,7 +35,7 @@ namespace IndianStateCensusAnaylzerTest
         {
             try
             {
-                StateCodeAnalyser.ReadStateCodeData(stateCensus_NODataFilePath);
+                StateCodeAnalyser.ReadStateCodeData(stateCodeDataFilePath);
             }
             catch (StateCodeException ex)
             {
