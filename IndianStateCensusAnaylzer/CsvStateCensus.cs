@@ -1,28 +1,28 @@
-﻿using CsvHelper;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿    using CsvHelper;
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-namespace IndianStateCensusAnaylzer
-{
-    public class CsvStateCensus
+    namespace IndianStateCensusAnaylzer
     {
-        public static int ReadStateCensusData(string filepath)
+        public class CsvStateCensus
         {
-            using (var reader = new StreamReader(filepath))
+            public static int ReadStateCensusData(string filepath)
             {
-                using (var csv = new CsvReader(reader,CultureInfo.InvariantCulture))
+                using (var reader = new StreamReader(filepath))
                 {
-                    var records = csv.GetRecords < StateCensusData>().ToList();
-                    return records.Count() - 1;
-                }
+                    using (var csv = new CsvReader(reader,CultureInfo.InvariantCulture))
+                    {
+                        var records = csv.GetRecords < StateCensusData>().ToList();
+                        return records.Count() - 1;
+                    }
                 
 
+                }
             }
-        }
 
+        }
     }
-}

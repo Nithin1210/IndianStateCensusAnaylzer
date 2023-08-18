@@ -14,6 +14,7 @@ namespace IndianStateCensusAnaylzer
             FILE_INCORRECT,
             FILE_NOT_EXIST,
             HEADER_INCORRECT,
+            DELIMETER_INCORRECT,
         }
         public ExceptionType type;
         public CensusAnalyserException(ExceptionType type, string message) : base(message)

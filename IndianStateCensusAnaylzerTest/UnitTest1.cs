@@ -3,8 +3,12 @@ namespace IndianStateCensusAnalyzerTest
 {
     public class Tests
     {
-        public string stateCensusDataFilePath2 = @"E:\BridgeLabz\IndianStateCensusAnaylzer\IndianStateCensusAnaylzer\Files\StateCensusDat.csv";
-        public string stateCensusDataFilePath = @"E:\BridgeLabz\IndianStateCensusAnaylzer\IndianStateCensusAnaylzer\Files\StateCensusData.csv";
+        public string stateCensusDataFilePath    = @"E:\BridgeLabz\IndianStateCensusAnaylzer\IndianStateCensusAnaylzer\Files\StateCensusData.csv";
+        public string stateCensus_NODataFilePath = @"E:\BridgeLabz\IndianStateCensusAnay.csv";
+        public string stateCencus_FileIncorrect  = @"C:\Users\TakkoliNithinKumarRe\Pictures\Screenshots\Screenshot 2023-08-12 121858.png";
+        
+
+
 
         [Test] 
         public void GivenStateCencusData_WhenAnalysed_RecordsShouldBeMAtched()
@@ -17,7 +21,7 @@ namespace IndianStateCensusAnalyzerTest
         {
             try
             {
-                StateCensusAnalyser.ReadstateCensusData(stateCensusDataFilePath);
+                StateCensusAnalyser.ReadstateCensusData(stateCencus_FileIncorrect);
             }
             catch (CensusAnalyserException ex)
             {
@@ -30,7 +34,7 @@ namespace IndianStateCensusAnalyzerTest
         {
             try
             {
-                StateCensusAnalyser.ReadstateCensusData(stateCensusDataFilePath2);
+                StateCensusAnalyser.ReadstateCensusData(stateCensus_NODataFilePath);
             }
             catch (CensusAnalyserException ex)
             {
@@ -49,5 +53,18 @@ namespace IndianStateCensusAnalyzerTest
                 Assert.AreEqual(ex.Message, "Header Incorrect");
             }
         }
+        [Test]
+        public void GivenStateDelimeterIncorrect_WhenAnalysed_ShouldReturnException()
+        {
+            try
+            {
+                StateCensusAnalyser.ReadstateCensusData(stateCensusDataFilePath);
+            }
+            catch (CensusAnalyserException ex)
+            {
+                Assert.AreEqual(ex.Message, "Delimeter Incorrect");
+            }
+        }
+        
     }
 }

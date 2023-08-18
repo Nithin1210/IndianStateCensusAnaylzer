@@ -27,6 +27,10 @@ namespace IndianStateCensusAnaylzer
                 throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.HEADER_INCORRECT, "Header Incorrect");
 
             }
+            if (File.ReadAllLines(filepath)[0].Contains("/") || (File.ReadAllLines(filepath)[0].Contains("|")))
+            {
+                throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.DELIMETER_INCORRECT, "Delimeter Incorrect");
+            }
 
             using (var reader = new StreamReader(filepath))
             {
