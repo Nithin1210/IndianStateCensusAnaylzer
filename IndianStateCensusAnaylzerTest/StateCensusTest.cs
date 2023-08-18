@@ -6,8 +6,8 @@ namespace IndianStateCensusAnalyzerTest
         public string stateCensusDataFilePath    = @"E:\BridgeLabz\IndianStateCensusAnaylzer\IndianStateCensusAnaylzer\Files\StateCensusData.csv";
         public string stateCensus_NODataFilePath = @"E:\BridgeLabz\IndianStateCensusAnay.csv";
         public string stateCencus_FileIncorrect  = @"C:\Users\TakkoliNithinKumarRe\Pictures\Screenshots\Screenshot 2023-08-12 121858.png";
-        
 
+        
 
 
         [Test] 
@@ -16,7 +16,7 @@ namespace IndianStateCensusAnalyzerTest
             Assert.AreEqual(StateCensusAnalyser.ReadstateCensusData(stateCensusDataFilePath), CsvStateCensus.ReadStateCensusData(stateCensusDataFilePath));
             Assert.Pass();
         }
-        [Test]
+        [Test]  
         public void GivenStateCencusDataFileIncorrect_WhenAnalysed_ShouldReturnException()
         {
             try
@@ -65,6 +65,7 @@ namespace IndianStateCensusAnalyzerTest
                 Assert.AreEqual(ex.Message, "Delimeter Incorrect");
             }
         }
+        
         
     }
 }
